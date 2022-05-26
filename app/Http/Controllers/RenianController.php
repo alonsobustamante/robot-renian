@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Interfaces\CodeRepositoryInterface;
 use App\Interfaces\PetRepositoryInterface;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Continue_;
 
 class RenianController extends Controller
 {
@@ -22,14 +23,20 @@ class RenianController extends Controller
 
        foreach($codes as $code){
 
-           $json = $this->codeRepository->searchRenian($code);
+            $json = $this->codeRepository->searchRenian($code);
 
-           if($this->petRepository->createPet($json, $code)){
-               $this->codeRepository->updateStatus($code);
-               \print_r("Insertado Exitosamente");
-           }else{
-               \print_r("Error insertando registro");
-           }
+            if (!$json){
+                $this->codeRepository->updateStatus($code, 2);
+                \print_r("No se encontro codigo \n");
+                continue;
+            }
+
+            if($this->petRepository->createPet($json, $code)){
+                $this->codeRepository->updateStatus($code, 0);
+                \print_r("Insertado Exitosamente \n");
+            }else{
+                \print_r("Error insertando registro \n");
+            }
        }
     }
 }

@@ -16,7 +16,7 @@ class CreateCodesTable extends Migration
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
             $table->string('code', 100);
-            $table->boolean('status')->default(true);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

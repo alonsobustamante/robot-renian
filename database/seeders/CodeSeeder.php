@@ -22,6 +22,7 @@ class CodeSeeder extends Seeder
         unset($codes[0]);
 
         foreach($codes as $code){
+
             Code::create([
                 'code' => $code
             ]);

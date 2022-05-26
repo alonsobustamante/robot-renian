@@ -21,11 +21,14 @@ class RenianService{
 
             $status = $response->getStatusCode();
 
-            if($status == 200){
+            if($status == 200 ){
                 $json = \json_decode($response->getBody()->getContents());
+                if(\property_exists($json, 'estado')){
+                    $json = null;
+                }
             }
         }catch(Exception $e){
-
+            return null;
         }
 
         return $json;

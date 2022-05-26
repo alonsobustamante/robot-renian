@@ -8,7 +8,7 @@ interface CodeRepositoryInterface
 {
     public function getCodes();
 
-    public function updateStatus(Code $code);
+    public function updateStatus(Code $code, $value);
 
     public function searchRenian(Code $code);
 

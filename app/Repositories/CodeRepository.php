@@ -16,9 +16,9 @@ class CodeRepository implements CodeRepositoryInterface{
         return $codes;
     }
 
-    public function updateStatus(Code $code)
+    public function updateStatus(Code $code, $value)
     {
-        $code->status = 0;
+        $code->status = $value;
         if(!$code->save()){
             return false;
         }
