@@ -27,15 +27,15 @@ class RenianController extends Controller
 
             if (!$json){
                 $this->codeRepository->updateStatus($code, 2);
-                \print_r("No se encontro codigo \n");
+                \print_r("=> No se encontro codigo ".$code." \n");
                 continue;
             }
 
             if($this->petRepository->createPet($json, $code)){
                 $this->codeRepository->updateStatus($code, 0);
-                \print_r("Insertado Exitosamente \n");
+                \print_r("=> Insertado Exitosamente ".$code." \n");
             }else{
-                \print_r("Error insertando registro \n");
+                \print_r("=> Error insertando registro ".$code." \n");
             }
        }
     }

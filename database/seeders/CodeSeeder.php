@@ -22,7 +22,7 @@ class CodeSeeder extends Seeder
         unset($codes[0]);
 
         foreach($codes as $code){
-
+            $code = preg_replace("/[\r\n|\n|\r]+/", "", $code);
             Code::create([
                 'code' => $code
             ]);
