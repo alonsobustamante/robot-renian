@@ -6,6 +6,6 @@ use App\Models\Documento;
 
 interface SusaludRepositoryInterface
 {
-    public function createSusalud($json, Documento $documento);
+    public function createSusalud($json);
 
 }

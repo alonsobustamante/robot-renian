@@ -31,8 +31,6 @@ class CreateSusaludsTable extends Migration
             $table->string('deUbigeoPro', 200);
             $table->string('deUbigeoDis', 200);
             $table->boolean('wsReniec');
-            $table->unsignedBigInteger('documento_id');
-            $table->foreign('documento_id')->references('id')->on('documentos');
             $table->timestamps();
         });
     }

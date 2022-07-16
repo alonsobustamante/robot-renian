@@ -10,9 +10,9 @@ use Illuminate\Support\Arr;
 
 class SusaludRepository implements SusaludRepositoryInterface{
 
-    public function createSusalud($json, Documento $documento)
+    public function createSusalud($json)
     {
-        $documento = Susalud::create([
+        return Susalud::create([
             'nuDni' => $json->nuDni,
             'preNombres' => $json->preNombres,
             'apPaterno' => $json->apPaterno,
@@ -29,9 +29,7 @@ class SusaludRepository implements SusaludRepositoryInterface{
             'deUbigeoPro' => $json->deUbigeoPro,
             'deUbigeoDis' => $json->deUbigeoDis,
             'wsReniec' => $json->wsReniec,
-            'documento_id' => $documento->id
         ]);
 
-        return $documento;
     }
 }

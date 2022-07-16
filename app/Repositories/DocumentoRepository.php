@@ -7,6 +7,7 @@ use App\Interfaces\DocumentoRepositoryInterface;
 use App\Models\Code;
 use App\Models\Documento;
 use App\Services\RenianService;
+use App\Services\SuneduService;
 use App\Services\SusaludService;
 use Illuminate\Support\Arr;
 
@@ -31,5 +32,10 @@ class DocumentoRepository implements DocumentoRepositoryInterface{
     public function searchSusalud(Documento $documento)
     {
         return SusaludService::getPersonaData($documento->documento);
+    }
+
+    public function searchSunedu(Documento $documento)
+    {
+        return SuneduService::getPersonaData($documento->documento);
     }
 }

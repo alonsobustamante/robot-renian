@@ -12,4 +12,6 @@ interface DocumentoRepositoryInterface
 
     public function searchSusalud(Documento $documento);
 
+    public function searchSunedu(Documento $documento);
+
 }
