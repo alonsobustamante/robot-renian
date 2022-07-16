@@ -13,9 +13,9 @@ use Illuminate\Support\Arr;
 
 class DocumentoRepository implements DocumentoRepositoryInterface{
 
-    public function getDocumentos()
+    public function getDocumentos($type)
     {
-        $documentos = Documento::select('documentos.documento as documento', 'documentos.status as status' , 'documentos.id as id')->where('status',1)->get();
+        $documentos = Documento::select('documentos.documento as documento', 'documentos.status as status' , 'documentos.id as id')->where('status',1)->where('type', $type)->get();
 
         return $documentos;
     }

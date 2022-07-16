@@ -18,7 +18,7 @@ class SuneduController extends Controller
     }
 
     public function execute(){
-        $documentos = $this->documentoRepository->getDocumentos();
+        $documentos = $this->documentoRepository->getDocumentos(2);
 
         foreach($documentos as $documento){
 

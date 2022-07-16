@@ -18,7 +18,7 @@ class SusaludController extends Controller
     }
 
     public function execute(){
-       $documentos = $this->documentoRepository->getDocumentos();
+       $documentos = $this->documentoRepository->getDocumentos(1);
 
        foreach($documentos as $documento){
 

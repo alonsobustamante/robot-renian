@@ -6,7 +6,7 @@ use App\Models\Documento;
 
 interface DocumentoRepositoryInterface
 {
-    public function getDocumentos();
+    public function getDocumentos($type);
 
     public function updateStatus(Documento $documento, $value);
 

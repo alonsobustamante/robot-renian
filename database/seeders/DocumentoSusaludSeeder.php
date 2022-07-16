@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Documento;
 use Illuminate\Database\Seeder;
 
-class DocumentoSeeder extends Seeder
+class DocumentoSusaludSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class DocumentoSeeder extends Seeder
      */
     public function run()
     {
-        $data = \File::get('database/data/documento.txt');
+        $data = \File::get('database/data/documento_susalud.txt');
         $documentos = array_reverse(explode("\n", $data));
         unset($documentos[0]);
         $documentos = array_reverse($documentos);
@@ -23,7 +23,8 @@ class DocumentoSeeder extends Seeder
         foreach($documentos as $documento){
             $documento = preg_replace("/[\r\n|\n|\r]+/", "", $documento);
             Documento::create([
-                'documento' => $documento
+                'documento' => $documento,
+                'type' => 1
             ]);
         }
     }

@@ -17,6 +17,7 @@ class CreateDocumentosTable extends Migration
             $table->id();
             $table->string('documento',10);
             $table->integer('status')->default(1);
+            $table->integer('type'); // 1=susalud, 2=sunedu
             $table->timestamps();
         });
     }
