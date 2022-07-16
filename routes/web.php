@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RenianController;
+use App\Http\Controllers\SusaludController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'renian'], function() {
     Route::get('/execute', [RenianController::class, 'execute']);
+});
+
+
+Route::group(['prefix' => 'susalud'], function() {
+    Route::get('/execute', [SusaludController::class, 'execute']);
 });
