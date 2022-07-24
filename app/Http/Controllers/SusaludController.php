@@ -30,7 +30,7 @@ class SusaludController extends Controller
                 continue;
             }
 
-            if($this->susaludRepository->createSusalud($json, $documento)){
+            if($this->susaludRepository->createSusalud($json)){
                 $this->documentoRepository->updateStatus($documento, 0);
                 \print_r("=> Insertado Exitosamente ".$documento." \n");
             }else{

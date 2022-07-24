@@ -30,9 +30,9 @@ class SusaludService{
             $status = $response->getStatusCode();
 
             if($status == 200 ){
-                $json = \json_decode($response->getBody()->getContents());
+                $json = json_decode($response->getBody()->getContents());
 
-                if(\property_exists($json, 'coError') && $json->coError != '0000'){
+                if($json->coError != '0000'){
                     $json = null;
                 }
             }
